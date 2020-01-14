@@ -14,7 +14,8 @@ import {
   View,
   Text,
   StatusBar,
-  Image//Importando componente image
+  Image,//Importando componente image
+  Platform
 } from 'react-native';
 
 import {
@@ -42,7 +43,7 @@ const App: () => React$Node = () => {
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
               <Image source={require('./assets/logo.png')} style={{width:300, height: 90}}></Image>
-              <Text style={styles.sectionTitle}>Step One</Text>
+              <Text style={styles.sectionTitle}>Tiembla Gaming Nius</Text>
               <Text style={styles.sectionDescription}>
                 Edit <Text style={styles.highlight}>App.js</Text> to change this
                 screen and then come back to see your edits.
@@ -83,11 +84,15 @@ const styles = StyleSheet.create({
     right: 0,
   },
   body: {
-    backgroundColor: Colors.white,
+    backgroundColor: Platform.select({ //Como programar estilos tanto para android como para ios
+      ios: 'green',
+      android: 'blue',
+    })
   },
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
+    backgroundColor: 'red',//Agregando estilo a las secciones
   },
   sectionTitle: {
     fontSize: 24,

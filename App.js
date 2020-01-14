@@ -5,12 +5,14 @@ import{
 }from 'react-native';
 
 import Home from './src/screens/containers/home';
+import Header from './src/sections/components/header';
 
 export default class App extends Component {
   render(){
     return(
       <Home>
-        <Text>Header</Text>
+        <Header>
+        </Header>
         <Text>Buscador</Text>
         <Text>Categorias</Text>
         <Text>Sugerencias</Text>

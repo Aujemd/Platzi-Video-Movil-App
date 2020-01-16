@@ -12,7 +12,6 @@ const VerticalSeparator = props => {
             }
             ]
         }>
-            <Text>Esto es un Separador</Text>
         </View>
     );
 }

@@ -6,6 +6,7 @@ import{
 
 import Home from './src/screens/containers/home';
 import Header from './src/sections/components/header';
+import SuggestionList from './src/videos/containers/suggestion-list';
 
 export default class App extends Component {
   render(){
@@ -15,7 +16,7 @@ export default class App extends Component {
         </Header>
         <Text>Buscador</Text>
         <Text>Categorias</Text>
-        <Text>Sugerencias</Text>
+        <SuggestionList></SuggestionList>
       </Home>
     );
   }

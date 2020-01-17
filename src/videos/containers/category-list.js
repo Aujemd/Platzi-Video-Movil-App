@@ -5,6 +5,7 @@ import Empty from '../components/empty';
 import Category from '../components/category';
 import Layout from '../components/categories-list-layout';
 import VerticalSeparator from '../components/horizontal-separator';
+
 class CategoryList extends Component{
     renderEmpty = () => <Empty text="No hay sugerencias :("/>
     itemSeparator = () => <VerticalSeparator/>

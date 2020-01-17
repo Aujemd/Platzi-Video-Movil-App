@@ -2,12 +2,10 @@ import React, { Component } from 'react'
 import{ View, FlatList} from 'react-native';
 
 import Empty from '../components/empty';
-import VerticalSeparator from '../components/vertical-separator';
 import Suggestion from '../components/suggestion';
-
+import Layout from '../components/categories-list-layout';
+import VerticalSeparator from '../components/horizontal-separator';
 class CategoryList extends Component{
-
-
     renderEmpty = () => <Empty text="No hay sugerencias :("/>
     itemSeparator = () => <VerticalSeparator/>
     renderItem = ({item}) => {
@@ -17,15 +15,19 @@ class CategoryList extends Component{
 
     render(){
         return(  
-            <FlatList //Lista sencilla
-                horizontal //Poner lista horizontal
-                keyExtractor={this.keyExtractor}
-                data={this.props.list}
-                ListEmptyComponent={this.renderEmpty}
-                ItemSeparatorComponent={this.itemSeparator}
-                renderItem={this.renderItem}
+            <Layout
+                title = "Categorias"
             >
-            </FlatList>
+                <FlatList //Lista sencilla
+                    horizontal //Poner lista horizontal
+                    keyExtractor={this.keyExtractor}
+                    data={this.props.list}
+                    ListEmptyComponent={this.renderEmpty}
+                    ItemSeparatorComponent={this.itemSeparator}
+                    renderItem={this.renderItem}
+                >
+                </FlatList>
+           </Layout>
         );
     }
 }

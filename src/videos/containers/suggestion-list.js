@@ -11,7 +11,9 @@ import Suggestion from '../components/suggestion';
 import {connect} from 'react-redux';
 
 function mapStateToProps(state){
-    debugger
+    return {
+        list: state.suggestionList,
+    }
 }
 
 class SuggestionList extends Component{

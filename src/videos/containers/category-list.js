@@ -5,6 +5,13 @@ import Empty from '../components/empty';
 import Category from '../components/category';
 import Layout from '../components/categories-list-layout';
 import VerticalSeparator from '../components/horizontal-separator';
+import {connect} from 'react-redux';
+
+function mapStateToProps(state) {
+    return {
+        list: state.categoryList,
+    }        
+}
 
 class CategoryList extends Component{
     renderEmpty = () => <Empty text="No hay sugerencias :("/>
@@ -13,6 +20,8 @@ class CategoryList extends Component{
         return(<Category {...item}></Category>);
     }
     keyExtractor = item => item.id.toString();
+
+
 
     render(){
         return(  
@@ -33,4 +42,4 @@ class CategoryList extends Component{
     }
 }
 
-export default CategoryList;
+export default connect(mapStateToProps)(CategoryList);

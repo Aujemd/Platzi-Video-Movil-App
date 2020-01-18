@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 
 import{
   Text,
-  View,
 }from 'react-native';
 
 import Home from './src/screens/containers/home';
@@ -11,6 +10,9 @@ import SuggestionList from './src/videos/containers/suggestion-list';
 import API from './utils/api';
 import CategoryList from './src/videos/containers/category-list';
 import Player from './src/player/containers/player';
+import { Provider } from 'react-redux';
+import store from './store';
+
 export default class App extends Component {
 
   state = {
@@ -31,6 +33,11 @@ export default class App extends Component {
 
   render(){
     return(
+      <Provider
+        store = {
+          store
+        }
+      >
       <Home>
         <Header>
         </Header>
@@ -39,9 +46,10 @@ export default class App extends Component {
         <CategoryList list= {this.state.categories}></CategoryList>
         <SuggestionList list= {this.state.suggestionList}></SuggestionList>
       </Home>
+      </Provider>
     );
   }
 }
 
-//Para el componente de video usar
-//El npm install --save react-native-video
+//METERLE REDUX
+// npm install redux react-redux --save

@@ -11,7 +11,9 @@ import API from './utils/api';
 import CategoryList from './src/videos/containers/category-list';
 import Player from './src/player/containers/player';
 import { Provider } from 'react-redux';
-import store from './store';
+import {store, persistor} from './store';
+import {PersistGate} from 'redux-persist/integration/react';
+
 export default class App extends Component {
 
   state = {
@@ -20,7 +22,7 @@ export default class App extends Component {
 
   async componentDidMount(){
    
-    const suggestionList = await API.getSuggestion(10);
+    /*const suggestionList = await API.getSuggestion(10);
 
     store.dispatch({
       type: 'SET_SUGGESTION_LIST',
@@ -37,7 +39,7 @@ export default class App extends Component {
         categoryList,
       }
     });
-   
+   */
   }
 
   render(){
@@ -47,7 +49,11 @@ export default class App extends Component {
           store
         }
       >
-      <Home>
+        <PersistGate
+          loading={<Text>Cargando ...</Text>}
+          persistor={persistor}
+        >
+        <Home>
         <Header>
         </Header>
         <Player></Player>
@@ -55,10 +61,11 @@ export default class App extends Component {
         <CategoryList></CategoryList>
         <SuggestionList></SuggestionList>
       </Home>
+        </PersistGate>
       </Provider>
     );
   }
 }
 
-//METERLE REDUX
-// npm install redux react-redux --save
+//npm install --save redux-persist
+// npm i @react-native-community/async-storage

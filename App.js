@@ -13,6 +13,7 @@ import Player from './src/player/containers/player';
 import { Provider } from 'react-redux';
 import {store, persistor} from './store';
 import {PersistGate} from 'redux-persist/integration/react';
+import Loading from './src/sections/components/loading';
 
 export default class App extends Component {
 
@@ -22,7 +23,7 @@ export default class App extends Component {
 
   async componentDidMount(){
    
-    /*const suggestionList = await API.getSuggestion(10);
+    const suggestionList = await API.getSuggestion(10);
 
     store.dispatch({
       type: 'SET_SUGGESTION_LIST',
@@ -39,7 +40,6 @@ export default class App extends Component {
         categoryList,
       }
     });
-   */
   }
 
   render(){
@@ -50,7 +50,7 @@ export default class App extends Component {
         }
       >
         <PersistGate
-          loading={<Text>Cargando ...</Text>}
+          loading={<Loading />}
           persistor={persistor}
         >
         <Home>

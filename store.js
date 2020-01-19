@@ -6,6 +6,7 @@ import {AsyncStorage} from 'react-native';
 const persistConfig = {
     key: 'root',
     storage: AsyncStorage,
+    blacklist: ['selectedMovie'], //Objetos que no van a persistir en el store persistido
   }
   
 const persistedReducer = persistReducer(persistConfig, reducer)

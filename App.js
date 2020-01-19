@@ -29,3 +29,4 @@ export default class App extends Component {
 
 //npm install --save redux-persist
 // npm i @react-native-community/async-storage
+//npm i react-native-webview

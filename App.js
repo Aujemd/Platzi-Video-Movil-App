@@ -30,3 +30,10 @@ export default class App extends Component {
 //npm install --save redux-persist
 // npm i @react-native-community/async-storage
 //npm i react-native-webview
+
+//PARA GENERAR EL APK
+
+//HACER LOS PASOS DE LA DOC
+//AL FINAL CAMBIAR LOS DOS ULTIMOS COMANDOS POR
+// gradlew assembleRelease
+// react-native run-android --variant=release

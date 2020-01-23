@@ -11,7 +11,7 @@ class Home extends Component{
 
     static navigationOptions = () => { //Metodo estatico para configurar navigation options donde Agregamos header personalizado a esta screen como en react-navigation 
         return{
-            header: Header
+            header: Header,
         }
     }
     async componentDidMount(){

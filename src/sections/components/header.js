@@ -9,7 +9,7 @@ import {
 
 const Header  = props => (
 <View>
-    <SafeAreaView>
+    <SafeAreaView style = {styles.statusBar}>
      <View style = {styles.container}>
             <Image 
             source = {require('../../../assets/logo.png')}
@@ -28,6 +28,9 @@ const styles = StyleSheet.create({
         width: 80,
         height: 26,
         resizeMode: 'contain', //Hacer que la imagen haga match con el tamaño que se le da
+    },
+    statusBar:{
+        backgroundColor: 'white',
     },
     container:{
         paddingVertical: 10, //Recordar que el padding en react-native no es completo sino horizontal y vertical

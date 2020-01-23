@@ -12,6 +12,20 @@ class Movie extends Component {
     state = {
         opacity: new Animated.Value(0),//instancia del valor que quiero cambiar en este caso instancio que el valor que voy a cambiar es la opacidad
     }
+
+    static navigationOptions = ({navigation}) => {
+        return {
+            header:() => {
+                return (
+                    <Header>
+                    <Close
+                    onPress = {() => {navigation.goBack()}}
+                    />
+                    </Header>
+                );
+            } 
+        }
+    }
     closeVideo = () =>{
         this.props.dispatch({
             type: 'SET_SELECTED_MOVIE',
@@ -39,11 +53,6 @@ class Movie extends Component {
             }}
             >
             <MovieLayout>
-            <Header>
-                <Close
-                onPress = {this.closeVideo}
-                />
-            </Header>
             <Player></Player>
             <Details {...this.props.movie}></Details>
             </MovieLayout>
@@ -55,7 +64,7 @@ class Movie extends Component {
 
 function mapStateTuProps(state){
     return{
-        movie: state.selectedMovie
+        movie: state.videos.selectedMovie
     }
 }
 

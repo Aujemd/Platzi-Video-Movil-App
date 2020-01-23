@@ -12,7 +12,8 @@ class About extends Component {
     static navigationOptions = () => { //Metodo estatico para configurar navigation options donde Agregamos header personalizado a esta screen como en react-navigation 
         return{
             title: 'Acerca de',
-            tabBarIcon: <Text>🚀</Text>
+            tabBarIcon: <Text>🚀</Text>,
+            drawerIcon: <Text>🚀</Text>
         }
     }
 

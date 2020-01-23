@@ -12,6 +12,7 @@ import Loading from './screens/containers/loading';
 import Login from './screens/containers/login';
 import Profile from './screens/containers/profile';
 import {Text} from 'react-native';
+import { createDrawerNavigator } from 'react-navigation-drawer';
 
 const Main = createStackNavigator(
     {
@@ -33,6 +34,7 @@ const TabNavigator = createBottomTabNavigator(
             navigationOptions:{
                 title: 'Inicio',
                 tabBarIcon: <Text>🏠</Text>,
+                drawerIcon: <Text>🏠</Text>,
             }
         },
         About: {
@@ -53,9 +55,49 @@ const TabNavigator = createBottomTabNavigator(
     }
 )
 
+const DrawerNavigator = createDrawerNavigator(
+    {
+        Home: {
+            screen: TabNavigator,
+            navigationOptions:{
+                title: 'Inicio',
+                drawerIcon: <Text>🏠</Text>,
+            }
+        },
+
+        Sobre:{
+            screen: About,
+        },
+        Suerte:{
+            screen: Lucky,
+        },
+
+    },
+    {
+        drawerWidth: 200,
+        drawerBackgroundColor: '#f6f6f6',
+        contentOptions:{ //Como se ven los items dentro del drawer
+            activeBackgroundColor: '#7aba2f',
+            activeTintColor: 'white',
+            inactiveTintColor: '#828282',
+            inactiveBackgroundColor: 'white',
+            itemStyle:{
+                boderBottomWidth: .5,
+                boderBottomColor: 'rgba(0, 0, 0, .5)',
+            },
+            labelStyle: {
+                marginHorizontal: 0,
+            },
+            iconContainerStyle: {
+                marginHorizontal: 5,
+            }
+        }
+    }
+)
+
 const SwitchNavigator = createSwitchNavigator(
     {   
-        App: TabNavigator,
+        App: DrawerNavigator,
         Login: Login,
         Loading: Loading,
     },

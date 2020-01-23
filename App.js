@@ -32,3 +32,4 @@ export default class App extends Component {
 //npm i react-navigation react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context react-navigation-stack @react-native-community/masked-view --save 
 //npm i react-navigation-redux-helpers
 //npm i react-navigation-tabs
+//npm i react-navigation-drawer

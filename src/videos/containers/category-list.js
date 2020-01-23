@@ -6,6 +6,8 @@ import Category from '../components/category';
 import Layout from '../components/categories-list-layout';
 import VerticalSeparator from '../components/horizontal-separator';
 import {connect} from 'react-redux';
+import {NavigationActions} from 'react-navigation';
+
 
 function mapStateToProps(state) {
     return {
@@ -16,8 +18,18 @@ function mapStateToProps(state) {
 class CategoryList extends Component{
     renderEmpty = () => <Empty text="No hay sugerencias :("/>
     itemSeparator = () => <VerticalSeparator/>
+    viewCategory = (item) => {
+        this.props.dispatch(
+            NavigationActions.navigate({
+                routeName: 'Category',
+                params: {
+                    genre: item.genres[0],
+                }
+            })
+        )
+    }
     renderItem = ({item}) => {
-        return(<Category {...item}></Category>);
+        return(<Category {...item} onPress = {() => {this.viewCategory(item)}}></Category>);
     }
     keyExtractor = item => item.id.toString();
 

@@ -7,6 +7,7 @@ import {
 
 import API from '../../../utils/api';
 import {connect} from 'react-redux';
+import {NavigationActions} from 'react-navigation'; //Hacer esto cuando el componente no es un pantalla
 
 class Search extends Component{
 
@@ -22,6 +23,12 @@ class Search extends Component{
                 movie: movies[0],
             }
         })
+
+        this.props.dispatch(
+            NavigationActions.navigate({
+                routeName: 'Movie',
+            })
+        )
     }
 
     handleChangedText = text =>{

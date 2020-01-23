@@ -13,6 +13,7 @@ import Login from './screens/containers/login';
 import Profile from './screens/containers/profile';
 import {Text} from 'react-native';
 import { createDrawerNavigator } from 'react-navigation-drawer';
+import DrawerComponent from './sections/components/drawer';
 
 const Main = createStackNavigator(
     {
@@ -91,7 +92,8 @@ const DrawerNavigator = createDrawerNavigator(
             iconContainerStyle: {
                 marginHorizontal: 5,
             }
-        }
+        },
+        contentComponent: DrawerComponent,
     }
 )
 

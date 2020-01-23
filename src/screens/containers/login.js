@@ -13,12 +13,12 @@ import { connect } from 'react-redux';
 
 class Login extends Component {
   handleLogin = () => {
-    const token = 'ABCDEFGHIJK';
+    const token = 'ABCDEFGHIJK';//Token para saber si el intercambio de datos entre la appy e backend fue seguro
     this.props.dispatch({
       type: 'SET_USER',
       payload: {
         token,
-        username: 'LeonidasEsteban'
+        username: 'JohanMora'
       }
     })
     this.props.navigation.navigate('Loading');

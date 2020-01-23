@@ -26,6 +26,13 @@ class Profile extends Component {
 componentWillUnmount(){
     this.focus.remove(); //Para evitar problemas de memoria
 }
+
+handleLogout = () => {
+  this.props.dispatch({
+    type: 'REMOVE_USER',
+  })
+  this.props.navigation.navigate('Loading');
+}
   render() {
     return (
       <SafeAreaView style={styles.container}>

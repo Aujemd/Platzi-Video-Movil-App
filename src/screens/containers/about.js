@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet,
   Image,
+  StatusBar
 } from 'react-native';
 
 class About extends Component {
@@ -11,7 +12,19 @@ class About extends Component {
     static navigationOptions = () => { //Metodo estatico para configurar navigation options donde Agregamos header personalizado a esta screen como en react-navigation 
         return{
             title: 'Acerca de',
+            tabBarIcon: <Text>🚀</Text>
         }
+    }
+
+    componentDidMount(){
+        this.focus = this.props.navigation.addListener('didFocus', () => {
+            StatusBar.setBarStyle('light-content');
+            StatusBar.setBackgroundColor('#022c43'); //Solo en android porque en IOS EL Background  color es transparante
+        });
+    }
+
+    componentWillUnmount(){
+        this.focus.remove(); //Para evitar problemas de memoria
     }
   render() {
     return (

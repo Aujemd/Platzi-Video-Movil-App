@@ -8,15 +8,24 @@ import {
   StatusBar,
 } from 'react-native';
 import { connect } from 'react-redux';
-import Icon from '../../sections/components/icon';
 
 class Profile extends Component {
   static navigationOptions = () => {
     return {
       title: 'Perfil',
+      tabBarIcon: <Text>🙍‍♂️</Text>
     }
   }
+  componentDidMount(){
+    this.focus = this.props.navigation.addListener('didFocus', () => {
+        StatusBar.setBarStyle('dark-content');
+        StatusBar.setBackgroundColor('white'); //Solo en android porque en IOS EL Background  color es transparante
+    });
+}
 
+componentWillUnmount(){
+    this.focus.remove(); //Para evitar problemas de memoria
+}
   render() {
     return (
       <SafeAreaView style={styles.container}>

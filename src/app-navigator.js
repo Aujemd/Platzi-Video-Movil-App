@@ -10,6 +10,7 @@ import About from './screens/containers/about';
 import Lucky from './screens/containers/lucky';
 import Profile from './screens/containers/profile';
 import Icon from './sections/components/icon';
+import {Text} from 'react-native';
 
 const Main = createStackNavigator(
     {
@@ -30,7 +31,7 @@ const TabNavigator = createBottomTabNavigator(
             screen: Main,
             navigationOptions:{
                 title: 'Inicio',
-                tabBarIcon: <Icon icon="🏠"></Icon>,
+                tabBarIcon: <Text>🏠</Text>,
             }
         },
         About: {

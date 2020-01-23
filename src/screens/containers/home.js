@@ -4,8 +4,8 @@ import Header from '../../sections/components/header';
 import SuggestionList from '../../videos/containers/suggestion-list';
 import CategoryList from '../../videos/containers/category-list';
 import API from '../../../utils/api';
-import Movie from '../../screens/containers/movie';
 import Search from '../../sections/containers/search';
+import {StatusBar} from 'react-native';
 
 class Home extends Component{
 
@@ -14,8 +14,13 @@ class Home extends Component{
             header: Header,
         }
     }
+
+
     async componentDidMount(){
-   
+        this.focus = this.props.navigation.addListener('didFocus', () => {
+        StatusBar.setBarStyle('dark-content');
+        StatusBar.setBackgroundColor('white'); //Ojo solo para android porque en IOS no tiene color el status bar
+    });
         const suggestionList = await API.getSuggestion(10);
     
         this.props.dispatch({
@@ -33,7 +38,12 @@ class Home extends Component{
             categoryList,
           }
         });
+
       }
+
+      componentWillUnmount(){
+        this.focus.remove(); //Para evitar problemas de memoria
+    }
 
     render(){
   
